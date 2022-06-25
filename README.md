@@ -4,6 +4,7 @@
 
 mameen@demiry.com | [linkedin/ademiry](https://www.linkedin.com/in/ademiry/)
 
+
 [longer version](./long.md)
 
 As an Engineering manager, I?m managing teams developing technology, to solve problems and make life better. I use my experience, to coach, to inspire, and to get the job done. I use my values to show "Why?" is more important to me than the "What?".
