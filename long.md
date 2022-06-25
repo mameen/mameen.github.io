@@ -1,6 +1,6 @@
 AMEEN DEMIRY
 110 170th ST SE, Bothell, WA, 98012 | +1-425-516-9754
-mameen@demiry.com | linkedin/ademiry
+mameen@demiry.com | [linkedin/ademiry](https://www.linkedin.com/in/ademiry/)
 
 As an Engineering manager, I?m managing teams developing technology, to solve problems and make life better. I use my experience, to coach, to inspire, and to get the job done. I use my values to show "Why?" is more important to me than the "What?".
 I value, Respect, Compassion, Agility, Perseverance, and Courage, and - above all - Balance!
