@@ -1,13 +1,14 @@
-AMEEN DEMIRY ([longer version](./long.md))
+# AMEEN DEMIRY
 
 110 170th ST SE, Bothell, WA, 98012 | +1-425-516-9754
 mameen@demiry.com | [linkedin/ademiry](https://www.linkedin.com/in/ademiry/)
+[longer version](./long.md)
 
 As an Engineering manager, I?m managing teams developing technology, to solve problems and make life better. I use my experience, to coach, to inspire, and to get the job done. I use my values to show "Why?" is more important to me than the "What?".
 I value, Respect, Compassion, Agility, Perseverance, and Courage, and - above all - Balance!
 
-#EXPERIENCE
-##2020 - CURRENT
+# EXPERIENCE
+## 2020 - CURRENT
 ENGINEERING MANAGER, SALESFORCE, TABLEAU VISUALIZATION PIPELINE
 * Setting the Vision, and the roadmap for my team, aligning with the Analytics org.
 * Improve the process to adopt lean startup methodology; build, measure, and learn. Improving velocity, and morale, without compromising quality. 
@@ -18,18 +19,18 @@ ENGINEERING MANAGER, SALESFORCE, TABLEAU VISUALIZATION PIPELINE
 * Giving many brown bags and presentations, as an SME in Visualization Pipeline, and Tableau Architecture. Encouraging team members to participate in similar sessions.
 * Doubling the team in headcount, and skills growth. Promoting, and preparing teammates for their next level.
 * Fostering and advocating for D&I. The team has the best ratio of URM in the org, and across all skill levels. Supporting exceptions when needed to accommodate for any special need, to the full extent of the company policy!
-##2018 - 2020
+## 2018 - 2020
 LMTS, TABLEAU RUNTIME, CORE DATA ENGINE (HYPER)
 * Scrum leader for Browser Everywhere team.
 * Working across multiple teams to developing and ship new side pane. [C++, C#, JS/TS]
 * Shipping SP1 of Browser Everywhere, an internal project to enable developing features once across desktop and server. [C++, C#, JS/TS]
 * Monitoring, and reporting Data Engine Scalability.
-##2015 - 2018
+## 2015 - 2018
 S.SDE, TABLEAU, RUNTIME
 * Testing and shipping the Runtime Core. A Visual Transformation language, and Virtual Machine to execute on Desktop and Web Client.
 * Memory leak Detection Framework, used by multiple teams in Tableau.
 * Refactoring The Partition Model Producer, a key Component of the Visual Pipeline.
-##2013 - 2015
+## 2013 - 2015
 SDE II, MICROSOFT, OFFICE FOR APPLE PLATFORM
 * Leading the RTL (right to left) support in Office APEX (Platform Team). Reimplementing some of the Windows and Office code to work on Apple platform both on OSX and IOS.
 ##2007 - 2013
@@ -39,13 +40,13 @@ S. SDET, MICROSOFT, DEVDIV, AZURE SQL
 * Auto analysis service for C++ crashes in Concurrency Runtime. Using machine learning to bucketize similar failures and predict matches with known failures in TFS
 * Stress Test Concurrency Runtime (C++, MSVC)
 * Gold star award (2008)
-##2000 - 2007
+## 2000 - 2007
 SDE, LEAD SDE, MULTIPLE, (EGYPT)
 * Design, Implement, and Ship, 4 Pocket PC Applications [C++]
 * Implementing RTL support on embedded ARM / Pocket PC [C++]
 * Implemented parts of BiDi support in Firefox Mozilla 16
 
-#EDUCATION
+# EDUCATION
 * MAY 1996
    B.SC. BIO-MEDICAL, AND SYSTEMS ENGINEERING, CAIRO UNIVERSITY
 * PMP, 2007 (expired)
@@ -64,7 +65,7 @@ SDE, LEAD SDE, MULTIPLE, (EGYPT)
 * Writing scripts
 * Simplifying Complex Problems
 
-#ACTIVITIES
+# ACTIVITIES
 As an Engineering manager, I'm looking for opportunities to advance my Software Engineering Management career. 
 I love Fishing, Coding, and Arabic Calligraphy!
 
