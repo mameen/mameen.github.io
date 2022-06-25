@@ -1,8 +1,6 @@
 # AMEEN DEMIRY
 
-110 170th ST SE, Bothell, WA, 98012 | +1-425-516-9754
-
-mameen@demiry.com | [linkedin/ademiry](https://www.linkedin.com/in/ademiry/)
+110 170th ST SE, Bothell, WA, 98012 | +1-425-516-9754 | mameen@demiry.com | [linkedin/ademiry](https://www.linkedin.com/in/ademiry/)
 
 
 [longer version](./long.md)
