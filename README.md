@@ -25,7 +25,7 @@ LMTS, TABLEAU RUNTIME, CORE DATA ENGINE (HYPER)
 * Scrum leader for Browser Everywhere team.
 * Working across multiple teams to developing and ship new side pane. [C++, C#, JS/TS]
 * Shipping SP1 of Browser Everywhere, an internal project to enable developing features once across desktop and server. [C++, C#, JS/TS]
-* Monitoring, and reporting Data Engine Scalability.
+* Monitoring, and reporting Data Engine Scalability, and micro-service to upload logs in Python.
 ## 2015 - 2018
 S.SDE, TABLEAU, RUNTIME
 * Testing and shipping the Runtime Core. A Visual Transformation language, and Virtual Machine to execute on Desktop and Web Client.
@@ -44,6 +44,8 @@ S. SDET, MICROSOFT, DEVDIV, AZURE SQL
 ## 2000 - 2007
 SDE, LEAD SDE, MULTIPLE, (EGYPT)
 * Design, Implement, and Ship, 4 Pocket PC Applications [C++]
+* Distributed application for processing large content in XML across 150 PCs reducing processing time from days to few hours
+* Multi-tier content portal [C++/C#/JS]
 * Implementing RTL support on embedded ARM / Pocket PC [C++]
 * Implemented parts of BiDi support in Firefox Mozilla 16
 
@@ -67,7 +69,6 @@ SDE, LEAD SDE, MULTIPLE, (EGYPT)
 * Simplifying Complex Problems
 
 # ACTIVITIES
-As an Engineering manager, I'm looking for opportunities to advance my Software Engineering Management career. 
-I love Fishing, Coding, and Arabic Calligraphy!
+I love Learning, Fishing, Coding, and Arabic Calligraphy!
 
 

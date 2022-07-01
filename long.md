@@ -24,7 +24,7 @@ LMTS, TABLEAU RUNTIME, CORE DATA ENGINE (HYPER)
 * Scrum leader for Browser Everywhere team.
 * Working across multiple teams to developing and ship new side pane. [C++, C#, JS/TS]
 * Shipping SP1 of Browser Everywhere, an internal project to enable developing features once across desktop and server. [C++, C#, JS/TS]
-* Monitoring, and reporting Data Engine Scalability.
+* Monitoring, and reporting Data Engine Scalability, and micro-service to upload logs in Python.
 
 ## 2015 - 2018
 S.SDE, TABLEAU, RUNTIME
@@ -44,27 +44,29 @@ S. SDET, MICROSOFT, DEVDIV, AZURE SQL
 * Stress Test Concurrency Runtime (C++, MSVC)
 * Gold star award (2008)
 * Test next generation of parallel technology (C++, C++0x, Parallel Computing).
-  o	Stress test framework, Tenet owner of stress testing
-  o	Failure auto analysis system that bucketized similar failures, and auto resolved to known bugs on TFS
-  o	FVT, Integration, Reliability test owner of Concurrency runtime
-  o	Blog about using Concurrency runtime in an Excel plug-in.
-  o	ARM porting and testing in C++ Concurrency runtime, and Casablanca
+  * Stress test framework, Tenet owner of stress testing
+  * Failure auto analysis system that bucketized similar failures, and auto resolved to known bugs on TFS
+  * FVT, Integration, Reliability test owner of Concurrency runtime
+  * Blog about using Concurrency runtime in an Excel plug-in.
+  * ARM porting and testing in C++ Concurrency runtime, and Casablanca
 * Shipped: 
-  o	Visual Studio 2010, SP1, 2012, Updates, 2013, features in XDK, ADK
-  o	C++ REST APIs (Casablanca)
+  * Visual Studio 2010, SP1, 2012, Updates, 2013, features in XDK, ADK
+  * C++ REST APIs (Casablanca)
 
 ## 2000 - 2007
 SDE, LEAD SDE, MULTIPLE, (EGYPT)
 * Team leader for Pocket PC projects
-  o	Design, Implement, and Ship, 4 Pocket PC Applications [C++]
+  * Design, Implement, and Ship, 4 Pocket PC Applications [C++]
 * Implementing RTL support on embedded ARM / Pocket PC [C++]
 * C++ Win32 PE EXE password protection, Apple Macintosh TTF conversion
 * Pocket PC Application: Custom controls, 9 languages, BiDi support for Pocket PC, GAPI H/W acceleration.
-* Multi-tier content portal
-  o	Implemented the middle teal and business logic using COM, DCOM, ATL, WSDL
-  o	Windows Script COM prototype for the middle-tier
+* Distributed application to process large content in XML across 150 PCs reducing processing time from days to few hours.
+* Multi-tier content portal [C++/C#/JS]
+  * Implemented the middle teal and business logic using COM, DCOM, ATL, WSDL
+  * Windows Script COM prototype
+  * Integration with Idrisi search engine
 *	Contractor at IBM Egypt (6 months)
-  o	Implemented parts of BiDi support in Firefox Mozilla 16
+  * Implemented parts of BiDi support in Firefox Mozilla 16
 
 # EDUCATION
 * MAY 1996
@@ -87,7 +89,6 @@ SDE, LEAD SDE, MULTIPLE, (EGYPT)
 * Simplifying Complex Problems
 
 # ACTIVITIES
-As an Engineering manager, I'm looking for opportunities to advance my Software Engineering Management career. 
-I love Fishing, Coding, and Arabic Calligraphy!
+I love Learning, Fishing, Coding, and Arabic Calligraphy!
 
 
