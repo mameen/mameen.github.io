@@ -88,6 +88,7 @@ SDE, LEAD SDE, MULTIPLE, (EGYPT)
 * Writing scripts
 * Simplifying Complex Problems
 
+* AWS Certified Cloud Practitioner September, 2022
 * Microsoft Security, Compliance, and Identity Fundamentals SC-900 August, 2022
 * Azure Fundamentals AZ-900 July, 2022
 * PMP Certified (289781) Sep. 2005 (expired)
