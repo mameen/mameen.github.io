@@ -72,6 +72,12 @@ SDE, LEAD SDE, MULTIPLE, (EGYPT)
 # EDUCATION
 * MAY 1996
    B.SC. BIO-MEDICAL, AND SYSTEMS ENGINEERING, CAIRO UNIVERSITY
+<br/>
+* Microsoft Certified: Azure AI Fundamentals AI-900, January, 2023
+* AWS Certified Cloud Practitioner September, 2022
+* Microsoft Security, Compliance, and Identity Fundamentals SC-900 August, 2022
+* Azure Fundamentals AZ-900 July, 2022
+* PMP Certified (289781) Sep. 2005 (expired)
 
 # SKILLS
 * Listening
@@ -87,12 +93,6 @@ SDE, LEAD SDE, MULTIPLE, (EGYPT)
 * Data informed decision
 * Writing scripts
 * Simplifying Complex Problems
-
-* Microsoft Certified: Azure AI Fundamentals AI-900, January, 2023
-* AWS Certified Cloud Practitioner September, 2022
-* Microsoft Security, Compliance, and Identity Fundamentals SC-900 August, 2022
-* Azure Fundamentals AZ-900 July, 2022
-* PMP Certified (289781) Sep. 2005 (expired)
 
 # ACTIVITIES
 I love Learning, Fishing, Coding, and Arabic Calligraphy!
