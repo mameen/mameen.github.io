@@ -73,6 +73,7 @@ SDE, LEAD SDE, MULTIPLE, (EGYPT)
 * MAY 1996
    B.SC. BIO-MEDICAL, AND SYSTEMS ENGINEERING, CAIRO UNIVERSITY
 <br/>
+* Azure Data Fundamentals certification DP-900, January, 2023
 * Microsoft Certified: Azure AI Fundamentals AI-900, January, 2023
 * AWS Certified Cloud Practitioner September, 2022
 * Microsoft Security, Compliance, and Identity Fundamentals SC-900 August, 2022
