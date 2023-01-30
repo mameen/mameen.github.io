@@ -1,77 +1,73 @@
 # AMEEN DEMIRY
 
-110 170th ST SE, Bothell, WA, 98012 | +1-425-516-9754 | mameen@demiry.com | [linkedin/ademiry](https://www.linkedin.com/in/ademiry/)
+170th ST SE, Bothell, WA, 98012 | +1-425-516-9754 | mameen@demiry.com | [linkedin/ademiry](https://www.linkedin.com/in/ademiry/) | [demiry.us](http://demiry.us)
 
-As an Engineering manager, I'm managing teams developing technology, to solve problems and make life better. I use my experience, to coach, to inspire, and to get the job done. I use my values to show "Why?" is more important to me than the "What?".
-
-I value, Respect, Compassion, Agility, Perseverance, and Courage, and - above all - Balance!
+As an Engineering Manager, I lead teams in developing technology to solve problems and improve life. I use my experience to coach, inspire, and drive results. I prioritize values such as respect, compassion, agility, perseverance, courage, and balance!
 
 # EXPERIENCE
+## 2020-2023
+SOFTWARE ENGINEERING MANAGER, TABLEAU
+* Tableau Internationalization team (6 engineers, 6 contractors)
+    * Transformed team to become self-organized with operations, quality, and feature development owned by team leaders
+    * Prioritized automation and implemented software development life cycle policies
+    * Led cloud migration for the continuous translation pipeline from on-premises to cloud-based
+    * Used data analytics to build translation metrics to evaluate priorities, quality, and cost
+    * Collaborated with internationalization teams across Salesforce and Slack to unify processes and share resources to reduce cost
+* Visualization pipeline team (8 top-skilled C++ engineers)
+    * Grew team from 4 to 8, promoted a principal member and coached others to improve performance
+    * Shipped Image role on time and without reduction in scope
+    * Successfully applied lean startup workflow to build, measure, and learn
+    * Managed design review, projects, and people
+    * Developing and shipping Visualization API SP2 (simple API to generate a Viz with Tableau look and feel)
+    * Shipped accessibility SP1 and initiated accessibility SP2 feature
+    * Used data analytics to evaluate team's priorities, performance, and maintenance cost
+    * Led bug triage and fixed complex C++ bugs
+    * Created template for performance review adopted across the organization
+    * Monitored performance metrics and led observability and bug triage across the organization
+    * Collaborated with multiple product managers and engineering managers to align business priorities with planning, scoping, and understanding
+    * Built a roadmap for the team for the next few years
+ 
+## 2015-2020
+LEAD SOFTWARE ENGINEER, TABLEAU
+* Scrum leader for Browser Everywhere team
+* Worked across multiple teams to develop and ship new side pane (C++, C#, JS/TS)
+* Shipped SP1 of Browser Everywhere, an internal project to enable developing features across desktop and server
+* Wrote new command pipeline and improved performance of existing command pipeline (C++, C#, JS/TS)
+* Monitored and reported on Data Engine Scalability
+* Wrote micro-service to ingest logs into data warehouse
+* Refactored Partition Model Producer, a key component of the Visual Pipeline
+* Developed Memory Leak Detection Framework used by multiple teams at Tableau
+* Tested and shipped Runtime Core, a Visual Transformation language and Virtual Machine for desktop and web client
 
-## 2020 - CURRENT
-ENGINEERING MANAGER, SALESFORCE, TABLEAU VISUALIZATION PIPELINE
-* Setting the Vision, and the roadmap for my team, aligning with the Analytics org.
-* Improve the process to adopt lean startup methodology; build, measure, and learn. Improving velocity, and morale, without compromising quality. 
-* Fostering innovation and coaching team members to propose new features, and get approvals, Like #ImageRole in Tableau Conference.
-* Enabling customer success by coordinating across discipline, proposing new features.
-* Lowering the cost of sustaining and supporting code with new integration workflow, and pair coding with SMEs.
-* Partnering with multiple teams in the org, to share key top skills to deliver critical projects in our org. Finding opportunities for top skills to apply and grow their skill set.
-* Giving many brown bags and presentations, as an SME in Visualization Pipeline, and Tableau Architecture. Encouraging team members to participate in similar sessions.
-* Doubling the team in headcount, and skills growth. Promoting, and preparing teammates for their next level.
-* Fostering and advocating for D&I. The team has the best ratio of URM in the org, and across all skill levels. Supporting exceptions when needed to accommodate for any special need, to the full extent of the company policy!
+## 2010-2015
+SENIOR SOFTWARE ENGINEER SDEII, MICROSOFT
+* Led RTL (right-to-left) support in Office APEX (Platform Team), reimplementing Windows and Office code for Apple platform (OSX and iOS)
+* Designed and implemented Extensible Incident Detection Utility for SQL Azure
+* Wrote tests and product code in Casablanca (Restful HTTP C++ library) used in Azure C++ SDK, ARM testing for Concurrency runtime and Casablanca (C++)
+* Stress tested Concurrency Runtime (C++, MSVC)
+* Received Gold star award in 2008
+## OTHER EXPERIENCES
+* Shipped multiple applications on embedded Windows Pocket PC [C++]
+    * C++ on ARM / RISC development, and debugging
+* Concurrency testing, and debugging
+    * Debugging complex concurrency issues like hanging, crashes
+    * Debugging performance issues like locking contention, and memory optimization
+* Implemented the middle tier back end of few portals, based on MCV, and MVVM architectures [C++, C#, JS]
+    * Search engine integration
+    * COM, Active-X, ASP.Net
+    * Cordova, and O-Jet
+* Bidi, RTL implementation
+    * eVC, pocket PC
+    * C++, JS, Firefox Mozilla M16, IBM ICU
+    * TTF, OTF file format, Microsoft Uniscribe, Apple core text
+* Medical image processing during collage
+* Familiar with
+    * Machine learning concepts including regression, classification, and libraries such as SciKit-learn
+    * 2D/3D Graphics applications like Photoshop, Inkscape, Paint.Net, and GIMPS, 3DS-MAX, Blender, and Sweet Home 3D
 
-## 2018 - 2020
-LMTS, TABLEAU RUNTIME, CORE DATA ENGINE (HYPER)
-* Scrum leader for Browser Everywhere team.
-* Working across multiple teams to developing and ship new side pane. [C++, C#, JS/TS]
-* Shipping SP1 of Browser Everywhere, an internal project to enable developing features once across desktop and server. [C++, C#, JS/TS]
-* Monitoring, and reporting Data Engine Scalability, and micro-service to upload logs in Python.
-
-## 2015 - 2018
-S.SDE, TABLEAU, RUNTIME
-* Testing and shipping the Runtime Core. A Visual Transformation language, and Virtual Machine to execute on Desktop and Web Client.
-* Memory leak Detection Framework, used by multiple teams in Tableau.
-* Refactoring The Partition Model Producer, a key Component of the Visual Pipeline.
-
-## 2013 - 2015
-SDE II, MICROSOFT, OFFICE FOR APPLE PLATFORM
-* Leading the RTL (right to left) support in Office APEX (Platform Team). Reimplementing some of the Windows and Office code to work on Apple platform both on OSX and IOS.
-
-## 2007 - 2013
-S. SDET, MICROSOFT, DEVDIV, AZURE SQL
-* Designed and Implemented Incident Detection Utility.
-* Wrote tests and product code in project Casablanca (Restful HTTP C++ library) used in Azure C++ SDK, ARM testing for Concurrency runtime, and Casablanca [C++]
-* Auto analysis service for C++ crashes in Concurrency Runtime. Using machine learning to bucketize similar failures and predict matches with known failures in TFS
-* Stress Test Concurrency Runtime (C++, MSVC)
-* Gold star award (2008)
-* Test next generation of parallel technology (C++, C++0x, Parallel Computing).
-  * Stress test framework, Tenet owner of stress testing
-  * Failure auto analysis system that bucketized similar failures, and auto resolved to known bugs on TFS
-  * FVT, Integration, Reliability test owner of Concurrency runtime
-  * Blog about using Concurrency runtime in an Excel plug-in.
-  * ARM porting and testing in C++ Concurrency runtime, and Casablanca
-* Shipped: 
-  * Visual Studio 2010, SP1, 2012, Updates, 2013, features in XDK, ADK
-  * C++ REST APIs (Casablanca)
-
-## 2000 - 2007
-SDE, LEAD SDE, MULTIPLE, (EGYPT)
-* Team leader for Pocket PC projects
-  * Design, Implement, and Ship, 4 Pocket PC Applications [C++]
-* Implementing RTL support on embedded ARM / Pocket PC [C++]
-* C++ Win32 PE EXE password protection, Apple Macintosh TTF conversion
-* Pocket PC Application: Custom controls, 9 languages, BiDi support for Pocket PC, GAPI H/W acceleration.
-* Distributed application to process large content in XML across 150 PCs reducing processing time from days to few hours.
-* Multi-tier content portal [C++/C#/JS]
-  * Implemented the middle teal and business logic using COM, DCOM, ATL, WSDL
-  * Windows Script COM prototype
-  * Integration with Idrisi search engine
-*	Contractor at IBM Egypt (6 months)
-  * Implemented parts of BiDi support in Firefox Mozilla 16
 
 # EDUCATION
-* MAY 1996
-   B.SC. BIO-MEDICAL, AND SYSTEMS ENGINEERING, CAIRO UNIVERSITY
+* B.SC. BIO-MEDICAL, AND SYSTEMS ENGINEERING, CAIRO UNIVERSITY
 <br/>
 * Azure Data Fundamentals certification DP-900, January, 2023
 * Microsoft Certified: Azure AI Fundamentals AI-900, January, 2023
