@@ -62,7 +62,7 @@ SENIOR SOFTWARE ENGINEER SDEII, MICROSOFT
     * TTF, OTF file format, Microsoft Uniscribe, Apple core text
 * Medical image processing during collage
 * Familiar with
-    * Machine learning concepts including regression, classification, and libraries such as SciKit-learn
+    * Machine learning concepts including regression, classification, and libraries such as SciKit-learn, Open CV
     * 2D/3D Graphics applications like Photoshop, Inkscape, Paint.Net, and GIMPS, 3DS-MAX, Blender, and Sweet Home 3D
 
 
