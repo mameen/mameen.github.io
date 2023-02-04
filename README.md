@@ -1,6 +1,6 @@
 # AMEEN DEMIRY
 
-170th ST SE, Bothell, WA, 98012 | +1-425-516-9754 | mameen@demiry.com | [linkedin/ademiry](https://www.linkedin.com/in/ademiry/) | [demiry.us](http://demiry.us)
+110 170th ST SE, Bothell, WA, 98012 | +1-425-516-9754 | mameen@demiry.com | [linkedin/ademiry](https://www.linkedin.com/in/ademiry/) | [demiry.us](http://demiry.us)
 
 As an Engineering Manager, I lead teams in developing technology to solve problems and improve life. I use my experience to coach, inspire, and drive results. I prioritize values such as respect, compassion, agility, perseverance, courage, and balance!
 
@@ -8,6 +8,9 @@ As an Engineering Manager, I lead teams in developing technology to solve proble
 ## 2020-2023
 SOFTWARE ENGINEERING MANAGER, TABLEAU
 * Tableau Internationalization team (6 engineers, 6 contractors)
+    * Managing people, priorities, scope, and process
+    * Overlooking budget, procurement, suppliers, staffing and priorities.
+    * Shipped 2 more languages, bringing supported languages to 14.
     * Transformed team to become self-organized with operations, quality, and feature development owned by team leaders
     * Prioritized automation and implemented software development life cycle policies
     * Led cloud migration for the continuous translation pipeline from on-premises to cloud-based
@@ -17,7 +20,7 @@ SOFTWARE ENGINEERING MANAGER, TABLEAU
     * Grew team from 4 to 8, promoted a principal member and coached others to improve performance
     * Shipped Image role on time and without reduction in scope
     * Successfully applied lean startup workflow to build, measure, and learn
-    * Managed design review, projects, and people
+    * Overlooking design, managing people, projects, priorities, and annual review and cash planning
     * Developing and shipping Visualization API SP2 (simple API to generate a Viz with Tableau look and feel)
     * Shipped accessibility SP1 and initiated accessibility SP2 feature
     * Used data analytics to evaluate team's priorities, performance, and maintenance cost
@@ -36,7 +39,7 @@ LEAD SOFTWARE ENGINEER, TABLEAU
 * Monitored and reported on Data Engine Scalability
 * Wrote micro-service to ingest logs into data warehouse
 * Refactored Partition Model Producer, a key component of the Visual Pipeline
-* Developed Memory Leak Detection Framework used by multiple teams at Tableau
+* Developed and implemented the Memory Leak Detection Framework used by multiple teams at Tableau
 * Tested and shipped Runtime Core, a Visual Transformation language and Virtual Machine for desktop and web client
 
 ## 2010-2015
