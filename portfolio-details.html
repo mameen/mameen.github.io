@@ -38,6 +38,91 @@
 
 <body>
 
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Function to get query parameter from URL
+      function getQueryParam(name) {
+        const urlSearchParams = new URLSearchParams(window.location.search);
+        return urlSearchParams.get(name);
+      }
+  
+      // Get work information from query parameters
+      var title = getQueryParam('title');
+      var category = getQueryParam('category');
+      var description = getQueryParam('description');
+      var imgSrc = getQueryParam('imgSrc');
+      var storesData = JSON.parse(getQueryParam('stores'));
+  
+      // Update the content on the page if the elements exist
+      var titleElement = document.getElementById('work-title');
+      if (titleElement) {
+        titleElement.textContent = title;
+      }
+  
+      var categoryElement = document.getElementById('work-category');
+      if (categoryElement) {
+        categoryElement.textContent = category;
+      }
+  
+      var descriptionElement = document.getElementById('work-description');
+      if (descriptionElement) {
+        descriptionElement.textContent = description;
+      }
+  
+      var imgElement = document.getElementById('work-image');
+      if (imgElement) {
+        imgElement.src = imgSrc;
+      }
+  
+      // Function to create table rows for stores
+      function createTableRow(store) {
+        var row = document.createElement('tr');
+  
+        // Create cells for the new header
+        var nameCell = document.createElement('td');
+        var priceCell = document.createElement('td');
+        var actionCell = document.createElement('td');
+        var notesCell = document.createElement('td');
+  
+        // Set content for the cells
+        // nameCell.innerHTML = `<img src="${store.img}" alt="${store.name}" style="max-width: 50px; max-height: 50px;"/><p>${store.name}</p>`;
+        nameCell.innerHTML = `<img src="${store.img}" alt="${store.name}" style="max-width: 50px; max-height: 50px;"/>`;
+
+        priceCell.innerHTML = `<p>$${store.price}</p>`;
+        
+        // Create the buy link
+        var buyLink = document.createElement('a');
+        buyLink.href = store.url;
+        buyLink.className = "readmore";
+        buyLink.textContent = 'Buy on ' + store.name;
+        actionCell.appendChild(buyLink);
+
+        notesCell.innerText = store.notes
+  
+        row.appendChild(nameCell);
+        row.appendChild(priceCell);
+        row.appendChild(actionCell);
+        row.appendChild(notesCell);
+  
+        return row;
+      }
+  
+      // Get the element where stores information will be displayed
+      var storesContainer = document.getElementById('selling-stores');
+  
+      // Populate the stores information
+      storesData.forEach(function (store) {
+        var row = createTableRow(store);
+        storesContainer.appendChild(row);
+      });
+  
+    });
+  </script>
+  
+  
+
+
   <main id="main">
 
     <!-- ======= Portfolio Details Section ======= -->

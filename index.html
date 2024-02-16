@@ -67,13 +67,113 @@
         <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
         <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
         <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
-        <!-- <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Portfolio</span></a></li>
+        <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Portfolio</span></a></li>
+        <!--
         <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Services</span></a></li> -->
         <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
       </ul>
     </nav><!-- .nav-menu -->
 
   </header><!-- End Header -->
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Sample JSON data (replace this with your actual data)
+  
+      // These are the categoris
+      // data-filter="*" class="active" All
+      // data-filter=".painting" Painting
+      // data-filter=".design" Design
+      // data-filter=".branding" Branding
+      // data-filter=".calligraphy" Calligraphy
+  
+        var jsonData = [
+        {
+          title: 'Eiffel Tower Painting',
+          imgSrc: 'assets/originals/painting/0001.jpg',
+          category: 'painting',
+          description: 'This art piece uses a meticulous blend of traditional techniques and contemporary creativity to craft this art piece. The result is a symphony of colors that effortlessly blend and flow, creating a harmonious visual melody that resonates with every observer',
+          stores: [
+          {name:"Etsy", img:"./assets/img/Etsy_logo_lg_rgb.png", price:"9.99", url:"https://www.etsy.com/listing/1634418668/eiffel-tower-painting?click_key=9310c6b316cba0300fb3a58a2fe2d980ec4a1fb9%3A1634418668&click_sum=29e76b65&ref=shop_home_recs_3", notes:""},
+          {name:"PayPal", img:"assets/img/Paypal_2014_logo.png", price:"9.99", url:"https://paypal.me/Adilalbayati10/", notes:"You have my permission to use the digital scan after you complete the transaction"},
+          ]
+        },
+      ];
+
+      var portfolioGrid = document.getElementById('portfolio');
+
+// Loop through the JSON data and create HTML elements
+jsonData.forEach(function(itemData) {
+  var item = document.createElement('div');
+  item.className = 'item ' + itemData.category.toLowerCase() + ' col-sm-6 col-md-4 col-lg-4 mb-4';
+
+  var itemWrap = document.createElement('div');
+  itemWrap.className = 'item-wrap fancybox';
+
+  var img = document.createElement('img');
+  img.src = itemData.imgSrc;
+  img.alt = 'Image';
+  img.className = 'img-fluid work-item';
+  img.style.cursor = 'pointer'; // Add pointer cursor style here
+
+  var workInfo = document.createElement('div');
+  workInfo.className = 'work-info';
+  workInfo.setAttribute('data-title', itemData.title);
+  workInfo.setAttribute('data-category', itemData.category);
+  workInfo.setAttribute('data-description', itemData.description);
+  workInfo.setAttribute('data-img-src', itemData.imgSrc);
+
+  var h3 = document.createElement('h3');
+  h3.textContent = itemData.title;
+
+  var span = document.createElement('span');
+  span.textContent = itemData.category;
+
+  // Append the elements
+  workInfo.appendChild(h3);
+  workInfo.appendChild(span);
+
+  itemWrap.appendChild(img);
+  itemWrap.appendChild(workInfo);
+
+  item.appendChild(itemWrap);
+
+  // Add a click event listener to each work item
+  item.addEventListener('click', function() {
+    // Get the data attributes for the selected work
+    var title = itemData.title;
+    var category = itemData.category;
+    var description = itemData.description;
+    var imgSrc = itemData.imgSrc;
+    var storesData = itemData.stores;
+
+    // Create a URL with query parameters to pass the work information
+    var url = './work-single.html?' +
+      'title=' + encodeURIComponent(title) +
+      '&category=' + encodeURIComponent(category) +
+      '&description=' + encodeURIComponent(description) +
+      '&imgSrc=' + encodeURIComponent(imgSrc)+
+      '&stores=' + encodeURIComponent(JSON.stringify(storesData));
+
+    console.log(`Navigating to ${url}`);
+
+    // Navigate to the work-single page with the selected work information
+    window.location.href = url;
+  });
+
+  // Append the item to the portfolio grid
+  portfolioGrid.appendChild(item);
+      
+        // Find all children elements of the 'work-item'
+        var children = item.querySelectorAll('.work-item *');
+      
+        // Add a class to each child element to change cursor to pointer
+        children.forEach(function(child) {
+          child.classList.add('pointer-cursor');
+        });
+      });
+    });
+</script>
 
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex flex-column justify-content-center">
@@ -528,6 +628,161 @@
 
       </div>
     </section><!-- End Resume Section -->
+
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Portfolio</h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-app">App</li>
+              <li data-filter=".filter-card">Card</li>
+              <li data-filter=".filter-web">Web</li>
+              <li data-filter=".painting">painting</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>App 1</h4>
+                <p>App</p>
+                <div class="portfolio-links">
+                  <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Web 3</h4>
+                <p>Web</p>
+                <div class="portfolio-links">
+                  <a href="assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>App 2</h4>
+                <p>App</p>
+                <div class="portfolio-links">
+                  <a href="assets/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Card 2</h4>
+                <p>Card</p>
+                <div class="portfolio-links">
+                  <a href="assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Web 2</h4>
+                <p>Web</p>
+                <div class="portfolio-links">
+                  <a href="assets/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 2"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>App 3</h4>
+                <p>App</p>
+                <div class="portfolio-links">
+                  <a href="assets/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 3"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Card 1</h4>
+                <p>Card</p>
+                <div class="portfolio-links">
+                  <a href="assets/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 1"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Card 3</h4>
+                <p>Card</p>
+                <div class="portfolio-links">
+                  <a href="assets/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 3"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Web 3</h4>
+                <p>Web</p>
+                <div class="portfolio-links">
+                  <a href="assets/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Section -->
+
 
     <!-- ======= Testimonials Section ======= -->
     <section id="testimonials" class="testimonials section-bg">
