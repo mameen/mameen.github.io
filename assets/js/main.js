@@ -228,7 +228,11 @@ typedElements.forEach(typed => {
       delay: 5000,
       disableOnInteraction: false
     },
-    pagination: {
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+      pagination: {
       el: '.swiper-pagination',
       type: 'bullets',
       clickable: true
