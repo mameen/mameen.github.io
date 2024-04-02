@@ -209,14 +209,14 @@ typedElements.forEach(typed => {
     selector: '.portfolio-lightbox'
   });
 
-  /**
-   * Initiate portfolio details lightbox 
-   */
-  const portfolioDetailsLightbox = GLightbox({
-    selector: '.portfolio-details-lightbox',
-    width: '90%',
-    height: '90vh'
-  });
+  // /**
+  //  * Initiate portfolio details lightbox 
+  //  */
+  // const portfolioDetailsLightbox = GLightbox({
+  //   selector: '.portfolio-details-lightbox',
+  //   width: '90%',
+  //   height: '90vh'
+  // });
 
   /**
    * Portfolio details slider
@@ -226,7 +226,7 @@ typedElements.forEach(typed => {
     loop: true,
     autoplay: {
       delay: 5000,
-      disableOnInteraction: false
+      disableOnInteraction: true
     },
     navigation: {
       nextEl: '.swiper-button-next',
