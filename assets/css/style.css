@@ -1208,3 +1208,64 @@ section {
 #footer .credits {
   font-size: 13px;
 }
+
+/*--------------------------------------------------------------
+# Live Projects (modern info cards)
+--------------------------------------------------------------*/
+.live-projects .info-card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.live-projects .info-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  width: 300px;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.live-projects a.info-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.live-projects .info-card i {
+  font-size: 40px;
+  color: #0563bb;
+  margin-bottom: 1.25rem;
+}
+
+.live-projects .info-card img.info-card-photo {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1.25rem;
+}
+
+.live-projects .info-card h4 {
+  margin: 0 0 0.75rem 0;
+  color: #1d1d1f;
+  font-size: 18px;
+}
+
+.live-projects .info-card p {
+  margin: 0;
+  color: #6e6e73;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+.live-projects .info-card .info-card-link {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 14px;
+  color: #0563bb;
+}
