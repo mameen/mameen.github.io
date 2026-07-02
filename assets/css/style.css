@@ -1287,7 +1287,7 @@ section {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   color: inherit;
   transition: transform 0.2s, box-shadow 0.2s;
-  max-width: 320px;
+  max-width: 420px;
 }
 
 .live-projects .info-card-mini:hover {
@@ -1315,20 +1315,26 @@ section {
   font-weight: 600;
 }
 
-.live-projects .info-card-mini a {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+.live-projects .info-card-mini p {
+  margin: 0 0 6px 0;
+  color: #6e6e73;
   font-size: 13px;
-  color: #0563bb;
-  text-decoration: none;
-  margin-right: 10px;
 }
 
-.live-projects .info-card-mini a:hover {
+.live-projects .info-card-mini-links {
+  font-size: 13px;
+  color: #6e6e73;
+}
+
+.live-projects .info-card-mini-links a {
+  color: #0563bb;
+  text-decoration: none;
+}
+
+.live-projects .info-card-mini-links a:hover {
   text-decoration: underline;
 }
 
-.live-projects .info-card-mini a i {
-  font-size: 14px;
+.live-projects .info-card-mini-links span {
+  margin: 0 6px;
 }
