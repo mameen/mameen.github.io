@@ -1275,9 +1275,10 @@ section {
 }
 
 .live-projects .info-card-mini {
-  position: absolute;
+  position: fixed;
   bottom: 32px;
   right: 32px;
+  z-index: 1000;
   display: flex;
   align-items: center;
   gap: 14px;
