@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-mode="dark">
+<html lang="en" data-mode="light">
 
 <head>
   <meta charset="utf-8">
@@ -29,6 +29,8 @@
       var saved = localStorage.getItem("portfolio-theme-v2");
       if (saved === "light" || saved === "dark") {
         document.documentElement.dataset.mode = saved;
+      } else {
+        document.documentElement.dataset.mode = "light";
       }
     })();
   </script>
