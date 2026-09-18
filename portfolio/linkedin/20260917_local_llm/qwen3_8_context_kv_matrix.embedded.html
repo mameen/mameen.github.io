@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Qwen 3.8 27B — Context × KV Cache Matrix</title>
+<style>
+:root{color-scheme:dark;--bg:#07111f;--glow:#143a5b;--glow2:#101b3a;--panel:#0b1d31;--ink:#edf6ff;--muted:#9bc0dc;--grid:#23445f;--cyan:#4cdbff;--pink:#ff62bd;--lime:#54e39a;--amber:#ffbe3d;--red:#ff7c88;--track:#17364d;--callout:rgba(255,190,61,.08)}
+body[data-theme="light"]{color-scheme:light;--bg:#f6fbff;--glow:#d4f0ff;--glow2:#e9e1ff;--panel:#ffffff;--ink:#10233a;--muted:#4f6c84;--grid:#bad1e1;--cyan:#007da8;--pink:#bd276d;--lime:#168553;--amber:#9a5b00;--red:#bb3340;--track:#dcebf4;--callout:rgba(154,91,0,.08)}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 15% 0,var(--glow) 0,transparent 34%),var(--bg);color:var(--ink);font:14px system-ui;line-height:1.45}.wrap{max-width:1480px;margin:auto;padding:42px 28px 64px}.eyebrow{color:var(--cyan);font-size:12px;font-weight:800;letter-spacing:.15em;text-transform:uppercase}.hero{display:flex;align-items:end;justify-content:space-between;gap:28px;border-bottom:1px solid var(--grid);padding-bottom:28px}.hero h1{font:500 clamp(30px,4vw,58px)/1.03 system-ui;margin:8px 0 12px;max-width:900px}.hero p{color:var(--muted);max-width:730px;margin:0}.chip{border:1px solid var(--grid);border-radius:999px;padding:9px 13px;color:var(--cyan);font-weight:700;white-space:nowrap}.metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:26px 0}.metric{background:var(--panel);border:1px solid var(--grid);border-radius:18px;padding:22px}.metric .k{color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:.08em}.metric .v{font-size:clamp(30px,4vw,52px);font-weight:800;line-height:1;margin:10px 0}.metric .d{color:var(--muted);font-size:14px}.metric.cyan .v{color:var(--cyan)}.metric.pink .v{color:var(--pink)}.metric.lime .v{color:var(--lime)}.grid{display:grid;grid-template-columns:minmax(0,2fr) minmax(330px,1fr);gap:18px;margin-top:18px}.panel{background:var(--panel);border:1px solid var(--grid);border-radius:20px;padding:22px;overflow:hidden}.panel h2{font:500 24px/1.15 system-ui;margin:4px 0 6px}.sub{color:var(--muted);margin:0 0 16px}.legend{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin:8px 0 2px}.legend button{border:0;background:transparent;color:var(--ink);padding:4px 0;cursor:pointer;font:inherit}.legend button.off{opacity:.35;text-decoration:line-through}.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:7px}.dot.f16{background:var(--pink)}.dot.q8{background:var(--cyan)}svg{width:100%;height:auto;display:block;overflow:visible}.axis{stroke:var(--grid);stroke-width:1}.gridline{stroke:var(--grid);stroke-width:1;opacity:.7}.tick{fill:var(--muted);font-size:12px}.label{fill:var(--ink);font-size:13px;font-weight:700}.note{fill:var(--muted);font-size:12px}.callout{border-left:3px solid var(--amber);background:var(--callout);padding:14px 15px;margin-top:16px;color:var(--ink)}.callout strong{color:var(--amber)}.mini{display:grid;gap:12px}.barrow{padding:12px 0;border-bottom:1px solid var(--grid)}.barrow:last-child{border-bottom:0}.bar-head{display:flex;justify-content:space-between;gap:12px;font-size:14px}.track{height:12px;background:var(--track);margin-top:8px;border-radius:9px;overflow:hidden}.bar{height:100%;border-radius:9px}.why{margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:18px}.why h3{margin:0 0 6px;font:500 20px system-ui}.why p{margin:0;color:var(--muted)}.foot{color:var(--muted);font-size:13px;margin-top:24px;border-top:1px solid var(--grid);padding-top:18px}.tooltip{position:fixed;pointer-events:none;background:var(--panel);color:var(--ink);border-radius:8px;padding:8px 10px;font-size:13px;line-height:1.35;box-shadow:0 9px 30px #0008;display:none;z-index:3}.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}@media(max-width:800px){.wrap{padding:28px 16px 46px}.hero{align-items:start;flex-direction:column}.metrics,.grid,.why{grid-template-columns:1fr}.metric{padding:18px}.chip{white-space:normal}}
+.precontext{margin:24px 0;background:var(--panel);border:1px solid var(--grid);border-radius:20px;padding:26px}.precontext h2{font:500 clamp(25px,3vw,38px)/1.1 system-ui;margin:5px 0 10px}.precontext .lead{color:var(--muted);max-width:1050px;margin:0 0 22px;font-size:17px}.memory-explainer{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr);gap:24px;align-items:start}.residency-list{display:grid;gap:13px}.residency-row{display:grid;grid-template-columns:96px 1fr 112px;gap:11px;align-items:center}.residency-label{font-weight:700;font-size:13px}.residency-bar{height:22px;background:var(--track);border-radius:8px;overflow:hidden;display:flex}.resident{background:var(--cyan);height:100%}.offload{background:repeating-linear-gradient(45deg,color-mix(in srgb,var(--pink) 80%,transparent),color-mix(in srgb,var(--pink) 80%,transparent) 6px,color-mix(in srgb,var(--pink) 35%,transparent) 6px,color-mix(in srgb,var(--pink) 35%,transparent) 12px);height:100%}.residency-value{font-size:12px;color:var(--muted);text-align:right}.why-q8{border-left:3px solid var(--lime);padding:4px 0 4px 17px}.why-q8 h3{margin:0 0 8px;font:500 22px system-ui;color:var(--lime)}.why-q8 p{margin:0 0 12px;color:var(--muted)}.formula{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;color:var(--ink);font-size:14px;background:color-mix(in srgb,var(--cyan) 10%,transparent);padding:11px 13px;border-radius:8px}.key{display:flex;gap:16px;flex-wrap:wrap;margin-top:16px;color:var(--muted);font-size:13px}.key .sample{display:inline-block;width:13px;height:13px;vertical-align:-2px;margin-right:5px;border-radius:3px}.key .vr{background:var(--cyan)}.key .ram{background:repeating-linear-gradient(45deg,color-mix(in srgb,var(--pink) 80%,transparent),color-mix(in srgb,var(--pink) 80%,transparent) 3px,color-mix(in srgb,var(--pink) 35%,transparent) 3px,color-mix(in srgb,var(--pink) 35%,transparent) 6px)}@media(max-width:800px){.memory-explainer{grid-template-columns:1fr}.residency-row{grid-template-columns:76px 1fr}.residency-value{grid-column:2;text-align:left}.precontext{padding:20px}}
+.hero-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:flex-end}.theme-control{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:12px;font-weight:700;cursor:pointer}.theme-control input{position:absolute;opacity:0}.theme-control i{width:52px;height:28px;border-radius:999px;background:#66778a;position:relative}.theme-control i:after{content:"";position:absolute;width:22px;height:22px;left:3px;top:3px;border-radius:50%;background:#fff;transition:transform .16s}.theme-control input:checked+i{background:var(--cyan)}.theme-control input:focus-visible+i{outline:3px solid var(--pink);outline-offset:3px}@media(max-width:800px){.hero-actions{justify-content:flex-start}}
+.ttft-panel{margin-top:18px}.ttft-panel svg{margin-top:6px}
+</style>
+</head>
+<body><main class="wrap">
+<section class="hero"><div><div class="eyebrow">Measured local inference · official Ollama checkpoint</div><h1>Where Qwen 3.8 27B stops being a fast 24 GB GPU model.</h1><p>One model. Six requested context sizes. Two KV-cache representations. The question was not “can it start?” but “when does it stop behaving interactively?”</p></div><div class="hero-actions"><div class="chip">12 fresh runs · prompt: “Write a 1000 words story then stop.”</div><label class="theme-control"><span>Light / Dark</span><input id="mode" type="checkbox" role="switch" aria-label="Light / Dark"><i aria-hidden="true"></i></label></div></section>
+<section class="precontext" aria-labelledby="residency-title">
+  <div class="eyebrow">Read this first</div>
+  <h2 id="residency-title">VRAM residency, not model quality, is the limiting resource.</h2>
+  <p class="lead">The official Qwen checkpoint is unchanged in every experiment. What changes is the memory needed beside the model: the KV cache is allocated for the requested context. During decode, the runner repeatedly accesses its weights and active cache for every new token. Once the runner no longer remains fully in the RTX 4090's 24 GB VRAM, host-memory offload enters the path and decode throughput falls sharply.</p>
+  <div class="why" style="margin:0 0 24px"><div><h3>Context size</h3><p>The context window is the maximum number of tokens the model can keep available for one request. Bigger windows need more working memory, even when the actual prompt is short.</p></div><div><h3>KV cache</h3><p>The key-value cache is the model's short-term working memory. It stores compact representations of earlier tokens so each new token can use the conversation so far without recalculating everything.</p></div><div><h3>Quantization</h3><p>Quantization stores numbers with fewer bits. Here, <code>q8_0</code> compresses the KV cache - not the Qwen model weights - to use less VRAM. This report measures speed and memory, not answer quality.</p></div></div>
+  <div class="why" style="margin:0 0 24px"><div><h3>The first-order cache math</h3><p>Qwen 3.8 uses 16 gated-attention layers, with 4 KV heads of 256 values each.</p><div class="formula">K + V cache<br>16 layers × 4 KV heads × 256 values × 2<br>= 32,768 values / token<br><br>f16 cache<br>32,768 × 2 bytes = 64 KiB / token<br>256K × 64 KiB = ~16 GiB raw KV data<br><br>q8_0 makes raw KV values roughly half that size<br>before metadata and runtime overhead.</div></div><div><h3>What this experiment directly measures</h3><p>This is a focused allocation, residency, and decode-throughput study. Each run reserves the requested <code>num_ctx</code> capacity, then generates a requested 1,000-word story with a 2,048-token ceiling. That makes the runner-memory readings and TPS values directly relevant to sustained local generation on this Ollama setup.</p><p>Its 21-token input intentionally avoids mixing long-prompt ingestion with decode. A separate filled-context prefill test would answer a different question; it does not weaken this result.</p></div></div>
+  <div class="memory-explainer">
+    <div>
+      <div class="residency-list" aria-label="Measured runner residency examples">
+        <div class="residency-row"><div class="residency-label">32K - f16</div><div class="residency-bar"><div class="resident" style="width:58%"></div></div><div class="residency-value">16.20 / 16.20 GB VRAM</div></div>
+        <div class="residency-row"><div class="residency-label">64K - f16</div><div class="residency-bar"><div class="resident" style="width:56%"></div><div class="offload" style="width:5%"></div></div><div class="residency-value">15.83 VRAM + 1.28 offloaded</div></div>
+        <div class="residency-row"><div class="residency-label">64K - q8_0</div><div class="residency-bar"><div class="resident" style="width:58%"></div></div><div class="residency-value">16.33 / 16.33 GB VRAM</div></div>
+        <div class="residency-row"><div class="residency-label">128K - q8_0</div><div class="residency-bar"><div class="resident" style="width:53%"></div><div class="offload" style="width:10%"></div></div><div class="residency-value">14.93 VRAM + 2.82 offloaded</div></div>
+        <div class="residency-row"><div class="residency-label">256K - q8_0</div><div class="residency-bar"><div class="resident" style="width:44%"></div><div class="offload" style="width:29%"></div></div><div class="residency-value">12.25 VRAM + 8.64 offloaded</div></div>
+      </div>
+      <div class="key"><span><i class="sample vr"></i>solid cyan: runner resident in VRAM</span><span><i class="sample ram"></i>striped pink: runner served from host memory</span></div>
+    </div>
+    <aside class="why-q8">
+      <h3>Why q8_0 won the token test</h3>
+      <p><code>q8_0</code> quantizes the <strong>KV cache</strong>, not the Qwen model weights. That reduces cache memory pressure while preserving the same official checkpoint.</p>
+      <p>At 64K, that is the decisive distinction: f16 has already offloaded 1.28 GB, while q8_0 remains fully resident. The observed result is 45.61 TPS versus 83.00 TPS.</p>
+      <div class="formula">q8_0 at 64K = 1.82x f16 throughput<br>83.00 / 45.61 = 1.82</div>
+    </aside>
+  </div>
+</section>
+<section class="metrics" aria-label="Key findings"><article class="metric cyan"><div class="k">Recommended default</div><div class="v">32K</div><div class="d">~81 TPS in either cache mode</div></article><article class="metric lime"><div class="k">Useful stretch setting</div><div class="v">64K q8</div><div class="d">83.00 TPS, still GPU-resident</div></article><article class="metric pink"><div class="k">f16 at 64K</div><div class="v">45.61</div><div class="d">TPS after the residency split begins</div></article></section>
+<section class="grid"><article class="panel"><div class="eyebrow">The full curve</div><h2>Decode throughput vs requested context</h2><p class="sub">TPS = Ollama <code>eval_count / eval_duration</code>. Every point used the official <code>qwen3.8:27b</code> tag and the same 2,048-token ceiling.</p><div class="legend"><button data-series="f16"><span class="dot f16"></span>f16 KV cache</button><button data-series="q8"><span class="dot q8"></span>q8_0 KV cache</button></div><svg id="throughput" viewBox="0 0 860 410" role="img" aria-label="Line chart comparing generated tokens per second across six context sizes for f16 and q8 KV cache"></svg><div class="callout"><strong>The 64K pivot:</strong> f16 falls to 45.61 TPS. q8_0 holds 83.00 TPS, an <strong>82.0% advantage</strong>.</div></article>
+<article class="panel"><div class="eyebrow">The answer</div><h2>Not all context is usable context.</h2><p class="sub">q8_0 buys headroom by shrinking the KV cache. It delays the VRAM cliff; it does not eliminate it.</p><div class="mini"><div class="barrow"><div class="bar-head"><span>32K · q8_0</span><strong>80.90 TPS</strong></div><div class="track"><div class="bar" style="width:96%;background:var(--cyan)"></div></div></div><div class="barrow"><div class="bar-head"><span>64K · q8_0</span><strong>83.00 TPS</strong></div><div class="track"><div class="bar" style="width:98%;background:var(--cyan)"></div></div></div><div class="barrow"><div class="bar-head"><span>128K · q8_0</span><strong>25.60 TPS</strong></div><div class="track"><div class="bar" style="width:30%;background:var(--amber)"></div></div></div><div class="barrow"><div class="bar-head"><span>256K · q8_0</span><strong>10.83 TPS</strong></div><div class="track"><div class="bar" style="width:13%;background:var(--red)"></div></div></div></div><div class="callout"><strong>Decision:</strong> use 32K as the default. Use 64K with q8_0 when extra working memory matters. Treat 128K and 256K as deliberate trade-offs, not defaults.</div></article></section>
+<section class="panel ttft-panel"><div class="eyebrow">Cold-start request readiness</div><h2>Load + prompt evaluation — not measured streaming TTFT</h2><p class="sub">A server-side readiness proxy: <code>load_duration + prompt_eval_duration</code>. Each point intentionally used a fresh runner. It does not capture the wall-clock arrival of the first streamed token, so it is not a substitute for a warm streaming TTFT test.</p><div class="legend"><span><i class="dot f16"></i>f16 KV cache</span><span><i class="dot q8"></i>q8_0 KV cache</span></div><svg id="first-response" viewBox="0 0 1260 330" role="img" aria-label="Line chart comparing cold-start request readiness, load plus prompt evaluation, across context sizes for f16 and q8 KV cache"></svg><div class="callout"><strong>At 64K:</strong> q8_0 reached server-side request readiness in 5.19 seconds versus 7.31 seconds for f16. This complements the decode result; it does not replace a warm streaming TTFT test.</div></section><section class="grid"><article class="panel"><div class="eyebrow">Why the curve bends</div><h2>VRAM residency, not model quality, is the limiting resource.</h2><p class="sub">Solid bars are the part of the runner resident in VRAM. Translucent extensions are host-memory offload.</p><svg id="memory" viewBox="0 0 860 370" role="img" aria-label="Bar chart showing runner memory and VRAM-resident memory at 64K, 128K, and 256K contexts"></svg></article><article class="panel"><div class="eyebrow">Method</div><h2>What changed and what did not</h2><div class="why"><div><h3>Held constant</h3><p>Official Qwen 3.8 27B Ollama tag, CUDA, Flash Attention, the literal prompt <code>Write a 1000 words story then stop.</code>, and one fresh runner for every point.</p></div><div><h3>Changed on purpose</h3><p>Requested context size and only the KV-cache representation: f16 versus q8_0. Model weights were not replaced or re-quantized.</p></div></div><div class="callout"><strong>Measurement scope:</strong> the TPS chart measures decode speed after generation begins. The readiness chart is a cold server counter, not observed streaming TTFT. A warm streaming TTFT test and a multi-user concurrency test are separate application measurements.</div></article></section>
+<p class="foot">Evidence: 12 successful fresh runs. Context sizes: 8K, 16K, 32K, 64K, 128K, 256K. Some stories naturally ended before the 2,048-token ceiling; each TPS value uses the actual generated-token count returned by Ollama.</p>
+<div class="tooltip" id="tooltip"></div></main>
+<script>
+(function () {
+  var ns = 'http://www.w3.org/2000/svg';
+  var f16 = [[8,70.14],[16,84.10],[32,81.15],[64,45.61],[128,11.77],[256,7.20]];
+  var q8 = [[8,83.95],[16,79.63],[32,80.90],[64,83.00],[128,25.60],[256,10.83]];
+  var pink;
+  var cyan;
+  function add(parent, name, attrs, text) {
+    var node = document.createElementNS(ns, name);
+    Object.keys(attrs || {}).forEach(function (key) { node.setAttribute(key, attrs[key]); });
+    if (text !== undefined) node.textContent = text;
+    parent.appendChild(node);
+    return node;
+  }
+  function lineChart() {
+    var svg = document.getElementById('throughput');
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    var W=860,H=410,L=66,R=18,T=25,B=60;
+    var x=function(v){ return L + (Math.log(v)/Math.LN2-3)/5*(W-L-R); };
+    var y=function(v){ return H-B-v/90*(H-T-B); };
+    [0,20,40,60,80].forEach(function(v){
+      add(svg,'line',{x1:L,y1:y(v),x2:W-R,y2:y(v),'class':'gridline'});
+      add(svg,'text',{x:L-10,y:y(v)+4,'text-anchor':'end','class':'tick'},String(v));
+    });
+    [8,16,32,64,128,256].forEach(function(v){ add(svg,'text',{x:x(v),y:H-B+25,'text-anchor':'middle','class':'tick'},v+'K'); });
+    add(svg,'text',{x:17,y:(T+H-B)/2,transform:'rotate(-90 17 '+((T+H-B)/2)+')','text-anchor':'middle','class':'label'},'generated tokens / sec');
+    add(svg,'line',{x1:x(64),y1:T,x2:x(64),y2:H-B,stroke:'#ffbe3d','stroke-dasharray':'5 5'});
+    add(svg,'text',{x:x(64)+8,y:T+14,'class':'note'},'64K pivot');
+    [['f16 KV cache',f16,pink],['q8_0 KV cache',q8,cyan]].forEach(function(series,index){
+      var points=series[1].map(function(d){return x(d[0])+','+y(d[1]);}).join(' ');
+      add(svg,'polyline',{points:points,fill:'none',stroke:series[2],'stroke-width':4,'stroke-linejoin':'round','stroke-linecap':'round'});
+      series[1].forEach(function(d){ add(svg,'circle',{cx:x(d[0]),cy:y(d[1]),r:6,fill:series[2]}); });
+      add(svg,'circle',{cx:84,cy:30+index*23,r:5,fill:series[2]});
+      add(svg,'text',{x:96,y:34+index*23,'class':'label'},series[0]);
+    });
+  }
+  function firstResponseChart() {
+    var svg = document.getElementById('first-response');
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    var f16Ready = [[8,6.03],[16,5.18],[32,5.47],[64,7.31],[128,8.64],[256,12.33]];
+    var q8Ready = [[8,4.97],[16,5.14],[32,5.10],[64,5.19],[128,7.32],[256,9.98]];
+    var W=1260,H=330,L=70,R=24,T=24,B=58;
+    var x=function(v){ return L + (Math.log(v)/Math.LN2-3)/5*(W-L-R); };
+    var y=function(v){ return H-B-(v-4)/9*(H-T-B); };
+    [4,6,8,10,12].forEach(function(v){
+      add(svg,'line',{x1:L,y1:y(v),x2:W-R,y2:y(v),'class':'gridline'});
+      add(svg,'text',{x:L-10,y:y(v)+4,'text-anchor':'end','class':'tick'},v+'s');
+    });
+    [8,16,32,64,128,256].forEach(function(v){ add(svg,'text',{x:x(v),y:H-B+25,'text-anchor':'middle','class':'tick'},v+'K'); });
+    add(svg,'text',{x:18,y:(T+H-B)/2,transform:'rotate(-90 18 '+((T+H-B)/2)+')','text-anchor':'middle','class':'label'},'server-side first response (seconds)');
+    add(svg,'line',{x1:x(64),y1:T,x2:x(64),y2:H-B,stroke:'#ffbe3d','stroke-dasharray':'5 5'});
+    add(svg,'text',{x:x(64)+8,y:T+14,'class':'note'},'64K: 5.19s q8_0 vs 7.31s f16');
+    [['f16 KV cache',f16Ready,pink],['q8_0 KV cache',q8Ready,cyan]].forEach(function(series,index){
+      var points=series[1].map(function(d){return x(d[0])+','+y(d[1]);}).join(' ');
+      add(svg,'polyline',{points:points,fill:'none',stroke:series[2],'stroke-width':4,'stroke-linejoin':'round','stroke-linecap':'round'});
+      series[1].forEach(function(d){ add(svg,'circle',{cx:x(d[0]),cy:y(d[1]),r:6,fill:series[2]}); });
+      add(svg,'circle',{cx:94,cy:30+index*23,r:5,fill:series[2]});
+      add(svg,'text',{x:106,y:34+index*23,'class':'label'},series[0]);
+    });
+  }
+  function memoryChart() {
+    var svg=document.getElementById('memory');
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    var rows=[['64K f16',17.11,15.83,pink],['64K q8',16.33,16.33,cyan],['128K f16',19.48,12.95,pink],['128K q8',17.75,14.93,cyan],['256K f16',26.23,10.02,pink],['256K q8',20.89,12.25,cyan]];
+    var W=860,H=370,L=64,R=18,T=26,B=74;
+    var y=function(v){return H-B-v/28*(H-T-B);};
+    [0,7,14,21,28].forEach(function(v){
+      add(svg,'line',{x1:L,y1:y(v),x2:W-R,y2:y(v),'class':'gridline'});
+      add(svg,'text',{x:L-10,y:y(v)+4,'text-anchor':'end','class':'tick'},String(v));
+    });
+    rows.forEach(function(row,i){
+      var step=(W-L-R)/6, bx=L+i*step+15, bw=step-28, total=row[1], vram=row[2];
+      add(svg,'rect',{x:bx,y:y(vram),width:bw,height:y(0)-y(vram),fill:row[3],rx:4});
+      if(total>vram) add(svg,'rect',{x:bx,y:y(total),width:bw,height:y(vram)-y(total),fill:row[3],opacity:.28,rx:4});
+      add(svg,'text',{x:bx+bw/2,y:y(total)-8,'text-anchor':'middle','class':'label'},total.toFixed(1)+'G');
+      add(svg,'text',{x:bx+bw/2,y:H-B+22,'text-anchor':'middle','class':'tick'},row[0]);
+    });
+    add(svg,'text',{x:W-R,y:T-8,'text-anchor':'end','class':'note'},'solid = VRAM   translucent = host-memory offload');
+  }
+  function redraw() {
+    var styles = getComputedStyle(document.body);
+    pink = styles.getPropertyValue('--pink').trim();
+    cyan = styles.getPropertyValue('--cyan').trim();
+    lineChart();
+    firstResponseChart();
+    memoryChart();
+  }
+  var toggle = document.getElementById('mode');
+  var MODE_KEY = 'qwen-context-brightness';
+  var mode = localStorage.getItem(MODE_KEY) || 'dark';
+  document.body.dataset.theme = mode;
+  toggle.checked = mode === 'dark';
+  redraw();
+  toggle.addEventListener('change', function () {
+    mode = toggle.checked ? 'dark' : 'light';
+    document.body.dataset.theme = mode;
+    localStorage.setItem(MODE_KEY, mode);
+    redraw();
+  });
+}());</script></body></html>
